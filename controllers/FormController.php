@@ -23,20 +23,6 @@
             $surveyName = filter_input(INPUT_POST, 'survey-name', FILTER_SANITIZE_STRING);
             $expiresAt = filter_input(INPUT_POST, 'expires-at', FILTER_SANITIZE_STRING);
 
-            if (isset($_FILES)) {
-                if ($_FILES["file-upload"]["size"] > 5000000) { // > 5MB
-                    $this->set("uploadMessage", "Fajl je preveliki");
-                } else {
-                    $fileName = basename($_FILES["file-upload"]["name"]);
-                    if (move_uploaded_file($_FILES["file-upload"]["tmp_name"], "uploads/" . $fileName)) {
-                        $this->set("uploadMessage", "Fajl je uploadovan");
-                    } else {
-                        $this->set("uploadMessage", "Fajl nije uploadovan, proverite permisije");
-                    }
-                }
-
-            }
-
             $formModel = new \App\Models\FormModel($this->getDatabaseConnection());
             $formId = $formModel->addForm([
                 "name" => $surveyName,
@@ -77,6 +63,27 @@
             }
 
             if (isset($formId)) {
+                if (isset($_FILES)) {
+                    if ($_FILES["file-upload"]["size"] > 5000000) { // > 5MB
+                        $this->set("uploadMessage", "Fajl je preveliki");
+                    } else {
+                        $fileTmpName = $_FILES["file-upload"]["tmp_name"];
+                        $fileName = $_FILES["file-upload"]["name"];
+                        $fileArray = explode(".", $fileName);
+                        $fileExtension = strtolower(end($fileArray));
+                        $newFileName = strval($formId) . "-" . "uploadedimage" . "." . $fileExtension;
+                        $fileDestination = "uploads/" . $newFileName;
+                        # $fileType = strtolower(pathinfo($file, PATHINFO_EXTENSION));
+                        # $allowed = [".jpg", ".png", ".jpeg"];
+                        # if (in_array($fileExtension, $allowed)) {  }
+                        if (move_uploaded_file($fileTmpName, $fileDestination)) {
+                            $this->set("uploadMessage", "Fajl je uploadovan");
+                        } else {
+                            $this->set("uploadMessage", "Došlo je do greške, fajl nije uploadovan");
+                        }
+                    }
+
+                }
                 $this->set('message', 'Anketa uspešno napravljena.');
             }
 
@@ -117,26 +124,31 @@
             }
 
             $responseModel = new \App\Models\ResponseModel($this->getDatabaseConnection());
-            $responses = $responseModel->getResponsesByFormId($formId);
+            # $responses = $responseModel->getResponsesByFormId($formId);
+
+            $responseCountModel = new \App\Models\ResponseCountModel($this->getDatabaseConnection());
+            $totalResponses = intval($responseCountModel->getResponseCountsByFormId($formId)->total_responses);
 
             for ($i = 0; $i < count($answers); $i++) {
                 for ($j = 0; $j < count($answers[$i]); $j++) {
                     for ($k = 0; $k < count($matchers); $k++) {
-                        if ($answers[$i][$j]->answer_id === $matchers[$k]["answer-id"] && count($responses) > 0) {
-                            $answers[$i][$j]->percentage = number_format((intval($matchers[$k]["times-selected"]) + 100) / count($responses), 2);
+                        if ($answers[$i][$j]->answer_id === $matchers[$k]["answer-id"] && intval($matchers[$k]["times-selected"]) > 0 && $totalResponses > 0) {
+                            $answers[$i][$j]->percentage = number_format((intval($matchers[$k]["times-selected"]) + 100) / $totalResponses, 2);
                         }
+
                         $currentQuestion = $questionModel->getQuestionById($answers[$i][$j]->question_id);
                         $answers[$i][$j]->question = $currentQuestion->title;
                         $answers[$i][$j]->question_type = $currentQuestion->type;
+
                         if ($currentQuestion->type === "text") {
                             $answers[$i][$j]->answer_value = $responseModel->getAnswerValueByQuestionId($currentQuestion->question_id)->answer_value;
                         }
                     }
                 }
             }
-
+            var_dump($answers);
             $this->set('answers', $answers);
-            $this->set('totalResponses', count($responses));
+            $this->set('totalResponses', $totalResponses);
             $this->set('survey', $form);
         }
 
@@ -153,6 +165,26 @@
                 $answers[] = $answerModel->getAnswersByQuestionId($question->question_id);
             }
 
+            # read dir /uploads
+            $files = [];
+            if ($handle = opendir("uploads/")) {
+                while (false !== ($file = readdir($handle))) {
+                    if ($file != "." && $file != "..") {
+                        $files[] = $file;
+                    }
+                }
+                closedir($handle);
+            }
+
+            foreach ($files as $file) {
+                if (preg_match("/^({$form->form_id}-)/", $file)) {
+                    $image = $file;
+                }
+            }
+
+            if(isset($image)) {
+                $this->set('image', $image);
+            }
             $this->set('shareString', $formShareString);
             $this->set('surveyName', $form->name);
             $this->set('questions', $questions);

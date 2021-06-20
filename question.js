@@ -14,10 +14,10 @@
         let fileName = formFile.files[0].name;
         let fileExtension = fileName.split(".").pop();
 
-        if (fileExtension.includes("jpg") || fileExtension.includes("jpeg") || fileExtension.includes("png") || fileExtension.includes("pdf") || fileExtension.includes("docx")) {
+        if (fileExtension.includes("jpg") || fileExtension.includes("jpeg") || fileExtension.includes("png")) {
             form.submit();
         } else {
-            alert("Fajl mora biti JPG, JPEG, PNG, PDF ili DOCX");
+            alert("Fajl mora biti JPG, JPEG ili PNG");
         }
     });
 

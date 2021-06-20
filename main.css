@@ -26,3 +26,9 @@ footer {
 #answer-percentage {
     display: inline-block;
 }
+
+.uploaded-img {
+    display: block;
+    background-size: cover;
+    width: 40%;
+}

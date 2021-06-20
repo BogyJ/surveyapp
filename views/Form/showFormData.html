@@ -41,11 +41,11 @@
         <div>
             <p id="answer-percentage">{{ answers[i][j].answer }}</p>
             {% if answers[i][j].percentage %}
-                {% if answers[i][j].question_type|e == "text" %}
-                    <p>{{ answers[i][j].answer_value }}</p>
-                {% else %}
-                    <code>{{ answers[i][j].percentage }}%</code>
-                {% endif %}
+                <code>{{ answers[i][j].percentage }}%</code>
+            {% endif %}
+
+            {% if answers[i][j].question_type|e == "text" %}
+                <p>{{ answers[i][j].answer_value }}</p>
             {% endif %}
         </div>
     {% endfor %}

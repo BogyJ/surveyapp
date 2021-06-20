@@ -4,6 +4,10 @@
 <div class="jumbotron share-survey">
     <h1 class="display-4 text-center">{{ surveyName }}</h1>
 
+    {% if image is defined %}
+        <img src="/uploads/{{ image }}" alt="Uploaded image" class="uploaded-img">
+    {% endif %}
+
     <form action="{{ BASE }}user/survey/response/{{ shareString|e }}/" method="POST">
         {% for i in 0..(questions|length-1) %}
                 <h4 class="mt-5">{{ questions[i].title|e }}</h4>

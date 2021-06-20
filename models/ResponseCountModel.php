@@ -47,32 +47,5 @@ class ResponseCountModel {
         return $this->dbc->getConnection()->lastInsertId();
     }
 
-    /*
-    public function addResponse(array $fieldValues) {
-        $sql = 'INSERT INTO `survey`.`response` (`question_id`, `answer_id`, `form_id`) VALUES (?, ?, ?)';
-        $prep = $this->dbc->getConnection()->prepare($sql);
-        $result = false;
-        $result = $prep->execute([ $fieldValues["question-id"], $fieldValues["answer-id"], $fieldValues["form-id"] ]);
-
-        if (!$result) {
-            return false;
-        }
-
-        return $this->dbc->getConnection()->lastInsertId();
-    }
-
-    public function getResponsesByFormId(int $formId) {
-        $sql = "SELECT * FROM `survey`.`response` WHERE `response`.`form_id` = ?;";
-        $prep = $this->dbc->getConnection()->prepare($sql);
-        $result = $prep->execute([ $formId ]);
-        $responses = [];
-
-        if ($result) {
-            $responses = $prep->fetchAll(\PDO::FETCH_OBJ);
-        }
-
-        return $responses;
-    }
-    */
 
 }

@@ -1,5 +1,0 @@
-RewriteEngine On
-RewriteBase /projects/surveyapp/
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ ./index.php?URL=$1 [L]
