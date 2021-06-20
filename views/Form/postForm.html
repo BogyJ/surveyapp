@@ -2,5 +2,8 @@
 
 {% block main %}
 <h1 class="display-3 text-center mt-3">{{ message }}</h1>
+{% if uploadMessage is defined %}
+    <h2>{{ uploadMessage }}</h2>
+{% endif %}
 <a href="/user/survey/show/all/">Spisak svih anketa</a>
 {% endblock %}

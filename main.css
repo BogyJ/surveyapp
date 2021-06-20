@@ -22,3 +22,7 @@ footer {
 .share-survey {
     margin-top: 100px;
 }
+
+#answer-percentage {
+    display: inline-block;
+}

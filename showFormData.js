@@ -1,5 +1,5 @@
 (function () {
-    // Implementirati "copy to clipboard" funkcionalnost
+    // "copy to clipboard" functionality
     const copyBtn = document.getElementById('copy-btn');
 
     function copyTextToClipboard() {

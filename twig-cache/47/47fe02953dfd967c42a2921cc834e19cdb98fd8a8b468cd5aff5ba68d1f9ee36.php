@@ -58,15 +58,15 @@ class __TwigTemplate_69b531678ef56cc7883c4d87e20cf05e5704d51a5b8951577e41808f6b3
 
             <div class=\"form-group\">
                 <label for=\"survey-expiry-date\">Vreme i datum isteka ankete:</label>
-                <input type=\"datetime-local\" class=\"form-control\" id=\"survey-expiry-date\" name=\"expires-at\">
+                <input type=\"date\" class=\"form-control\" id=\"survey-expiry-date\" name=\"expires-at\">
                 <small id=\"expiry-date-help\" class=\"form-text text-muted\">Ne mora biti definisano vreme.</small>
             </div>
 
             <div class=\"form-group\">
                 <div class=\"input-group\">
-                    <div class=\"custom-file\">
-                        <input type=\"file\" class=\"custom-file-input\" id=\"file-upload\" aria-describedby=\"inputGroupFileAddon04\">
-                        <label class=\"custom-file-label\" for=\"file-upload\">Priložite datoteku uz anketu</label>
+                    <div class=\"d-inline-block\">
+                        <label for=\"file-upload\" class=\"form-label\">Dozvoljeni fajlovi su: .jpg, .jpeg, .png, .pdf, .docx --MAX 5MB</label>
+                        <input type=\"file\" class=\"form-control\" accept=\".jpeg,.jpg,.png,.pdf,.docx\" name=\"file-upload\" id=\"file-upload\">
                     </div>
                 </div>
             </div>

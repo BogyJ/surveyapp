@@ -29,5 +29,28 @@
 </table>
 <p id="copy-alert" class="text-center"></p>
 
+<h1 class="mb-5 mt-3">Responses: {{ totalResponses }}</h1>
+
+{% set counter = 0 %}
+{% for i in 0..answers|length %}
+    {% for j in 0..answers[i]|length %}
+        {% if counter == 0 %}
+            <h3>{{ answers[i][j].question }}</h3>
+            {% set counter = counter + 1 %}
+        {% endif %}
+        <div>
+            <p id="answer-percentage">{{ answers[i][j].answer }}</p>
+            {% if answers[i][j].percentage %}
+                {% if answers[i][j].question_type|e == "text" %}
+                    <p>{{ answers[i][j].answer_value }}</p>
+                {% else %}
+                    <code>{{ answers[i][j].percentage }}%</code>
+                {% endif %}
+            {% endif %}
+        </div>
+    {% endfor %}
+    {% set counter = 0 %}
+{% endfor %}
+
 <script src="/showFormData.js" type="text/javascript"></script>
 {% endblock %}

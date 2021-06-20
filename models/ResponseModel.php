@@ -60,4 +60,17 @@
             return $answersNumber;
         }
 
+        public function getAnswerValueByQuestionId(int $questionId) {
+            $sql = "SELECT `response`.`answer_value` FROM `survey`.`response` WHERE `response`.`answer_value` IS NOT NULL AND `response`.`question_id` = ?;";
+            $prep = $this->dbc->getConnection()->prepare($sql);
+            $result = $prep->execute([ $questionId ]);
+            $answerValue = null;
+
+            if ($result) {
+                $answerValue = $prep->fetch(\PDO::FETCH_OBJ);
+            }
+
+            return $answerValue;
+        }
+
     }

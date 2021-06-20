@@ -2,8 +2,24 @@
     const selectOptions = document.getElementById("question-type-1");
     const inputElementsDiv = document.getElementById("input-elements");
     const addQuestionBtn = document.getElementById("add-question-btn");
+    const addSurveyBtn = document.getElementById("add-survey-btn");
+    const formFile = document.getElementById("file-upload");
+    const form = document.getElementById("survey-form");
     let questionId = 1;
     let answerId = 1;
+
+    addSurveyBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        let fileName = formFile.files[0].name;
+        let fileExtension = fileName.split(".").pop();
+
+        if (fileExtension.includes("jpg") || fileExtension.includes("jpeg") || fileExtension.includes("png") || fileExtension.includes("pdf") || fileExtension.includes("docx")) {
+            form.submit();
+        } else {
+            alert("Fajl mora biti JPG, JPEG, PNG, PDF ili DOCX");
+        }
+    });
 
     function getQuestionNextId() {
         return ++questionId;

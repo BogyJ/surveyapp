@@ -50,7 +50,17 @@ class __TwigTemplate_fa5bee31ea9f79625d43a131f5a4e4d101d92802ae67c4d21cc707a30d0
         echo "<h1 class=\"display-3 text-center mt-3\">";
         echo twig_escape_filter($this->env, ($context["message"] ?? null), "html", null, true);
         echo "</h1>
-<a href=\"/user/survey/show/all/\">Spisak svih anketa</a>
+";
+        // line 5
+        if (array_key_exists("uploadMessage", $context)) {
+            // line 6
+            echo "    <h2>";
+            echo twig_escape_filter($this->env, ($context["uploadMessage"] ?? null), "html", null, true);
+            echo "</h2>
+";
+        }
+        // line 8
+        echo "<a href=\"/user/survey/show/all/\">Spisak svih anketa</a>
 ";
     }
 
@@ -66,7 +76,7 @@ class __TwigTemplate_fa5bee31ea9f79625d43a131f5a4e4d101d92802ae67c4d21cc707a30d0
 
     public function getDebugInfo()
     {
-        return array (  50 => 4,  46 => 3,  35 => 1,);
+        return array (  63 => 8,  57 => 6,  55 => 5,  50 => 4,  46 => 3,  35 => 1,);
     }
 
     public function getSourceContext()

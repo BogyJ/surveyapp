@@ -23,6 +23,20 @@
             $surveyName = filter_input(INPUT_POST, 'survey-name', FILTER_SANITIZE_STRING);
             $expiresAt = filter_input(INPUT_POST, 'expires-at', FILTER_SANITIZE_STRING);
 
+            if (isset($_FILES)) {
+                if ($_FILES["file-upload"]["size"] > 5000000) { // > 5MB
+                    $this->set("uploadMessage", "Fajl je preveliki");
+                } else {
+                    $fileName = basename($_FILES["file-upload"]["name"]);
+                    if (move_uploaded_file($_FILES["file-upload"]["tmp_name"], "uploads/" . $fileName)) {
+                        $this->set("uploadMessage", "Fajl je uploadovan");
+                    } else {
+                        $this->set("uploadMessage", "Fajl nije uploadovan, proverite permisije");
+                    }
+                }
+
+            }
+
             $formModel = new \App\Models\FormModel($this->getDatabaseConnection());
             $formId = $formModel->addForm([
                 "name" => $surveyName,
@@ -102,22 +116,27 @@
                 }
             }
 
-            # filter matching array in a new one where will be stored percentage of answers coverage
+            $responseModel = new \App\Models\ResponseModel($this->getDatabaseConnection());
+            $responses = $responseModel->getResponsesByFormId($formId);
 
             for ($i = 0; $i < count($answers); $i++) {
                 for ($j = 0; $j < count($answers[$i]); $j++) {
                     for ($k = 0; $k < count($matchers); $k++) {
-                        if ($answers[$i][$j]->answer_id === $matchers[$k]["answer-id"]) {
-                            $answers[$i][$j]->times_selected = $matchers[$k]["times-selected"];
-                        } else {
-                            $answers[$i][$j]->times_selected = "0";
+                        if ($answers[$i][$j]->answer_id === $matchers[$k]["answer-id"] && count($responses) > 0) {
+                            $answers[$i][$j]->percentage = number_format((intval($matchers[$k]["times-selected"]) + 100) / count($responses), 2);
+                        }
+                        $currentQuestion = $questionModel->getQuestionById($answers[$i][$j]->question_id);
+                        $answers[$i][$j]->question = $currentQuestion->title;
+                        $answers[$i][$j]->question_type = $currentQuestion->type;
+                        if ($currentQuestion->type === "text") {
+                            $answers[$i][$j]->answer_value = $responseModel->getAnswerValueByQuestionId($currentQuestion->question_id)->answer_value;
                         }
                     }
                 }
             }
 
-            $this->set('questions', $questions);
             $this->set('answers', $answers);
+            $this->set('totalResponses', count($responses));
             $this->set('survey', $form);
         }
 
@@ -149,7 +168,7 @@
             $questions = $questionModel->getQuestionsByFormId($form->form_id);
 
             $responseModel = new \App\Models\ResponseModel($this->getDatabaseConnection());
-            for ($i=0; $i<count($questions); $i++) {
+            for ($i = 0; $i < count($questions); $i++) {
 
                 if ($questions[$i]->type === 'radio') {
                     $responseId = $responseModel->addResponse([
@@ -168,10 +187,12 @@
                     }
                 } else {
                     # handle text input
-                    $answerValue = filter_input(INPUT_POST, 'answer-' . $questions[$i]->question_id . '-text', FILTER_SANITIZE_STRING);
-                    $answerId = filter_input(INPUT_POST, 'answer-' . $questions[$i]->question_id, FILTER_SANITIZE_STRING);
                     # ANSWER ID = answer-{{ questions[i].question_id }}
                     # ANSWER VALUE = answer-{{ questions[i].question_id }}-text
+
+                    $answerValue = filter_input(INPUT_POST, 'answer-' . $questions[$i]->question_id . '-text', FILTER_SANITIZE_STRING);
+                    $answerId = filter_input(INPUT_POST, 'answer-' . $questions[$i]->question_id, FILTER_SANITIZE_STRING);
+                    # var_dump($answerValue);
 
                     $responseId = $responseModel->addResponseWithFieldValue([
                         "question-id" => $questions[$i]->question_id,
