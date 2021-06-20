@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Outline&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&display=swap');
+
+body section {
+    min-height: calc(100vh - 245px);
+}
+
+.logo-text {
+    font-family: 'Bungee Outline', cursive;
+    font-size: 60px !important;
+    color: #0D6EFD !important;
+}
+
+nav .navbar-nav {
+    margin-left: auto;
+}
+
+#navbarText ul {
+    width: 100%;
+    justify-content: flex-end;
+}
+
+table td {
+    width: 25vw !important;
+    border: 1px solid black;
+}
+
+.form-label {
+    margin-top: 50px;
+}
+
+.btn-upload {
+    margin-top: 100px;
+}
+
+footer {
+    display: block;
+    background-color: #ffffff;
+    width: 100vw;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 -3px 6px rgba(0, 0, 0, .3);
+}
+
+footer .text-muted {
+    color: rgb(141, 131, 131);
+}
+
+.grid-images {
+    width: 90vw;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 350px);
+    align-items: center;
+    justify-content: center;
+    grid-gap: 10px;
+}
+
+.uploaded-img {
+    cursor: pointer;
+    width: 250px;
+}
+
+#lightbox {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .8);
+    display: none;
+}
+
+#lightbox.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#lightbox img {
+    max-width: 90%;
+    max-height: 80%;
+    padding: 4px;
+    background-color: #000000;
+    border: 2px solid #ffffff;
+    border-radius: 4px;
+}

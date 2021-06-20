@@ -1,0 +1,18 @@
+{
+    "name": "bogdan/surveyapp",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Bogdan Jovanović",
+            "email": "bogdan.jovanovic.17@singimail.rs"
+        }
+    ],
+    "require": {
+        "twig/twig": "^3.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": ""
+        }
+    }
+}

@@ -1,0 +1,172 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "Braničevo je predeo koji obuhvata:",
+      "answers": {
+        "1": "donji tok Peka i njeno ušće u Dunav",
+        "2": "donji tok Velike Morave i njeno ušće u Dunav",
+        "3": "donji tok Timoka i njeno ušće u Dunav",
+        "4": "donji tok Kolubare i njeno ušće u Savu"
+      },
+      "correctAnswer": 1,
+      "isMultipleAnswerChoice": false
+    },
+    {
+      "id": 2,
+      "question": "Jedna od najvećih istorijskih dragocenosti naše zemlje jesu:",
+      "answers": {
+        "1": "stara utvrđenja",
+        "2": "zamkovi",
+        "3": "manastiri"
+      },
+      "correctAnswer": 3,
+      "isMultipleAnswerChoice": false
+    },
+    {
+      "id": 3,
+      "question": "Najmanji kraški oblici reljefa su:",
+      "answers": {
+        "1": "kraška polja",
+        "2": "vrtače",
+        "3": "pećine",
+        "4": "škrape"
+      },
+      "correctAnswer": 4,
+      "isMultipleAnswerChoice": false
+    },
+    {
+      "id": 4,
+      "question": "Regionalna celina Vlasina i Krajište nalazi se u okviru:",
+      "answers": {
+        "1": "Južnog Pomoravlja",
+        "2": "Istočne Srbije",
+        "3": "Zapadnog Pomoravlja"
+      },
+      "correctAnswer": 1,
+      "isMultipleAnswerChoice": false
+    },
+    {
+      "id": 5,
+      "question": "Najrasprostranjenija vrsta voća u Srbiji je:",
+      "answers": {
+        "1": "jabuka",
+        "2": "šljiva",
+        "3": "kruška"
+      },
+      "correctAnswer": 2,
+      "isMultipleAnswerChoice": false
+    },
+    {
+      "id": 6,
+      "question": "Najrasprostranjenija zemljišta u Srbiji su:",
+      "answers": {
+        "1": "gajnjača",
+        "2": "smonice",
+        "3": "podzoli"
+      },
+      "correctAnswer": 3,
+      "isMultipleAnswerChoice": false
+    },
+    {
+      "id": 7,
+      "question": "Naučna geografija razvija se od XVIII veka.",
+      "answers": {
+        "1": "DA",
+        "2": "NE"
+      },
+      "correctAnswer": 2,
+      "isMultipleAnswerChoice": false
+    },
+    {
+      "id": 8,
+      "question": "Gornja granica šuma je na visini od:",
+      "answers": {
+        "1": "1200 – 1300 m",
+        "2": "1400 – 1600 m",
+        "3": "1900 – 2000 m"
+      },
+      "correctAnswer": 3,
+      "isMultipleAnswerChoice": false
+    },
+    {
+      "id": 9,
+      "question": "Koliko su visoke Vršačke planine?",
+      "answers": {
+        "1": "539 m",
+        "2": "1132 m",
+        "3": "639 m"
+      },
+      "correctAnswer": 3,
+      "isMultipleAnswerChoice": false
+    },
+    {
+      "id": 10,
+      "question": "Sićevačka klisura se nalazi u u dolini reke:",
+      "answers": {
+        "1": "Južne Morave",
+        "2": "Timoka",
+        "3": "Ibra",
+        "4": "Nišave"
+      },
+      "correctAnswer": 4,
+      "isMultipleAnswerChoice": false
+    },
+    {
+      "id": 11,
+      "question": "Hidrolizom ATP, kada se u ćeliji oslobađa energija razgrađuje se veza između:",
+      "answers": {
+        "1": "C atoma u molekulu riboze",
+        "2": "adenina i riboze",
+        "3": "fosfatnih grupa"
+      },
+      "correctAnswer": 3,
+      "isMultipleAnswerChoice": false
+    },
+    {
+      "id": 12,
+      "question": "Reka Drina pripada:",
+      "answers": {
+        "1": "Jadranskom slivu",
+        "2": "Egejskom slivu",
+        "3": "Crnomorskom slivu",
+        "4": "Jonskom slivu"
+      },
+      "correctAnswer": 3,
+      "isMultipleAnswerChoice": false
+    },
+    {
+      "id": 13,
+      "question": "Po uređenju sve Latino-američke države su republike?",
+      "answers": {
+        "1": "DA",
+        "2": "NE"
+      },
+      "correctAnswer": 1,
+      "isMultipleAnswerChoice": false
+    },
+    {
+      "id": 14,
+      "question": "Koje jezero predstavlja najveću kriptodepresiju u Evropi?",
+      "answers": {
+        "1": "Ohridsko",
+        "2": "Skadarsko",
+        "3": "Bledsko"
+      },
+      "correctAnswer": 2,
+      "isMultipleAnswerChoice": false
+    },
+    {
+      "id": 15,
+      "question": "U kraški reljef spadaju:",
+      "answers": {
+        "1": "mlađe sedimentne stene",
+        "2": "starije sedimentne stene",
+        "3": "magmatske stene",
+        "4": "metamorfne stene"
+      },
+      "correctAnswer": 2,
+      "isMultipleAnswerChoice": false
+    }
+  ]
+}

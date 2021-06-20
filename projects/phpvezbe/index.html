@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prvi Kolokvijum</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href='styles.css'>
+</head>
+<body>
+    <header>
+        <nav class="flex al-items js-sb">
+            <a class="logo" href="#"><img src="download.png"></a>
+            <ul class="flex al-items">
+                <li><a href="#">Meni</a></li>
+                <li><a href="#">Kontakt</a></li>
+                <li><a href="#">Naruci</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="hero flex">
+        <div class="hero__text">
+            <h1>Naruči dostavu<br>Za manje od 1 minuta!</h1>
+            <h2>2.200 objekata, 30 gradova, 50 kuhinja</h2>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Napravi porudzbinu hrane</button>
+
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Nova Porudzbina</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="post" action="test.php">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="exampleFormControlInput1">Ime</label>
+                                <input type="text" name="ime" class="form-control" placeholder="Ime" required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="exampleFormControlInput1">Prezime</label>
+                                <input type="text" name="prezime" class="form-control" placeholder="Prezime" required>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="phone">Telefon</label>
+                            <input type="text" name="phone" class="form-control" placeholder="Telefon">
+                          </div>
+                          <div class="form-group">
+                            <label for="exampleFormControlInput1">Email adresa</label>
+                            <input type="email" name="email" class="form-control" placeholder="E-mail">
+                          </div>
+                          <div class="form-group">
+                            <label for="inputAddress">Adresa</label>
+                            <input type="text" name="adresa" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                          </div>
+                          <div class="form-row">
+                            <div class="form-group col-md-6">
+                              <label for="inputCity">Restoran</label>
+                              <input type="text" name="restoran" class="form-control" id="inputCity">
+                            </div>
+                            <div class="form-group col-md-4">
+                              <label for="inputState">Grad</label>
+                              <select id="inputState" name="grad" class="form-control">
+                                <option selected>Izaberi...</option>
+                                <option value="Beograd">Beograd</option>
+                                <option value="Novi Sad">Novi Sad</option>
+                                <option value="nis">Nis</option>
+                              </select>
+                            </div>
+                            <div class="form-group col-md-2">
+                              <label for="quantity">Kol.</label>
+                              <input type="number" name="kolicina" min="1" max="10" class="form-control" id="inputZip">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label for="inputAddress">Naziv artikla</label>
+                            <input type="text" name="imeArtikla" class="form-control" id="inputAddress" placeholder="Naziv artikla">
+                          </div>
+                          <div class="form-group">
+                            <label for="inputAddress">Dodatne informacije & Dodaci</label>
+                            <input type="text" name="informacije" class="form-control" id="inputAddress" placeholder="Dodatne informacije">
+                          </div>
+                          <div class="form-group">
+                            <div class="form-check">
+                              <input class="form-check-input" type="checkbox" id="gridCheck">
+                              <label class="form-check-label" for="gridCheck">
+                                Obavesti me 10 minuta pred dolazak.
+                              </label>
+                            </div>
+                          </div>
+                          <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Posalji podatke</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Zatvori</button>
+                    </div>
+                    </form>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <img src="test1.png">
+    </section>
+    <section class="menu">
+        <div class="row">
+            <div class="col-sm-6">
+              <div class="card">
+                <div class="card-body">
+                  <img class="card-img-top img-set" src="33jpg.jpg" alt="Card image cap"> 
+                  <h5 class="card-title">BigMac Obrok</h5>
+                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="card">
+                <div class="card-body">
+                  <img class="card-img-top img-set" src="11.png" alt="Card image cap">
+                  <h5 class="card-title">McChicken Obrok</h5>
+                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row mt-5">
+            <div class="col-sm-6">
+              <div class="card">
+                <div class="card-body">
+                  <img class="card-img-top img-set" src="33jpg.jpg" alt="Card image cap"> 
+                  <h5 class="card-title">BigMac Obrok</h5>
+                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="card">
+                <div class="card-body">
+                  <img class="card-img-top img-set" src="11.png" alt="Card image cap">
+                  <h5 class="card-title">McChicken Obrok</h5>
+                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+            </div>
+          </div>
+    </section>
+    
+    
+    
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+</body>
+</html>

@@ -1,0 +1,495 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --blue-color: #6dd5ed;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-image: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+    color: #ffffff;
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+}
+
+.buttons-top {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    margin-top: 5px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(7, 120px);
+    height: 95vh;
+    justify-content: center;
+    margin-top: 2vh;
+}
+
+.container .box {
+    border: 1px solid var(--blue-color);
+    display: grid;
+    grid-template-areas: "autic timer info btns";
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 100px;
+    align-items: center;
+}
+
+.container .box img {
+    grid-area: autic;
+    width: 170px;
+    margin-top: 20px;
+}
+
+.container .box .timer {
+    grid-area: timer;
+    font-size: 2.5rem;
+    margin-left: 20px;
+}
+
+.container .info {
+    grid-area: info;
+    border-radius: 3px;
+    margin-top: 5px;
+    margin-left: 10px;
+    background-color: #ffffff;
+    font-weight: 700;
+    color: #000000;
+}
+
+.date {
+    font-size: 1.6rem;
+}
+
+.text-large {
+    font-size: 2.6rem;
+}
+
+.container .box .buttons {
+    grid-area: btns;
+    padding: 6px 0;
+    margin-right: 7px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-left: auto;
+}
+
+.container .box .buttons button,
+.motor-button,
+.cars-section button {
+    background: transparent;
+    border: 1px solid var(--blue-color);
+    width: 120px;
+    height: 30px;
+    border-radius: 3px;
+    margin-top: 10px;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 1rem;
+    text-transform: uppercase;
+    outline: none;
+    transition: 300ms;
+    letter-spacing: 1.5px;
+}
+
+#full,
+#normal {
+    background: transparent;
+    border: 1px solid var(--blue-color);
+    border-radius: 3px;
+    color: #ffffff;
+    cursor: pointer;
+    padding: 4px 8px;
+    outline: none;
+    transition: 300ms;
+    font-size: .9rem;
+}
+
+#end {
+    background: transparent;
+    border: 1px solid var(--blue-color);
+    width: 260px;
+    height: 30px;
+    border-radius: 3px;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    outline: none;
+    transition: 300ms;
+}
+
+.container .box button:hover,
+.robots .buttons button:hover,
+.motors .buttons button:hover,
+.cars .buttons button:hover,
+#end:hover,
+#full:hover,
+#normal:hover {
+    color: #000000;
+    background: #ffffff;
+}
+
+.container .box button:active,
+.robots .buttons button:active,
+.motors .buttons button:active,
+.cars .buttons button:active,
+#end:active,
+#full:active,
+#normal:active {
+    background-image: linear-gradient(#134550, #0fbee6);
+    color: #ffffff;
+}
+
+.pause {
+    display: none;
+}
+
+.continue {
+    display: none;
+}
+
+.reset {
+    opacity: .5;
+}
+
+/* #robots-section {
+    display: grid;
+    grid-template-areas: "robot-1 robot-2";
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    position: relative;
+    border: 1px solid var(--blue-color);
+	border-left: 0;
+	border-bottom: 0;
+}
+
+#robot-12 {
+    grid-area: robot-1;
+}
+
+#robot-13 {
+    grid-area: robot-2;
+}
+
+.robots {
+    display: grid;
+    grid-template-areas: 
+                    "robot robot tajmer buttons"
+                    "infos infos infos infos";
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 100px;
+    align-items: center;
+    position: relative;
+}
+
+.robot-1 {
+    position: absolute;
+    top: 5px;
+    left: 12%;
+    font-size: 1.1rem;
+    text-decoration: underline;
+}
+
+.robot-2 {
+    position: absolute;
+    top: 5px;
+    right: 28%;
+    font-size: 1.1rem;
+    text-decoration: underline;
+}
+
+.robots .buttons {
+    grid-area: buttons;
+    padding: 6px 6px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.robots button {
+    width: 80px;
+    height: 30px;
+    font-size: .9rem;
+    text-transform: uppercase;
+    background: transparent;
+    border: 1px solid var(--blue-color);
+    color: #ffffff;
+    cursor: pointer;
+    outline: none;
+    border-radius: 3px;
+}
+
+.robots .timer {
+    grid-area: tajmer;
+    font-size: 1.8rem;
+}
+
+.robots .info {
+    grid-area: infos;
+    position: absolute;
+    top: -40px;
+}
+
+.robots .info .text-large {
+    font-size: 2rem;
+}
+
+#robots-section img {
+    grid-area: robot;
+	width: 100px;
+    margin-top: 10px;
+} */
+
+#auto-1 {
+    border-left: 0;
+    border-top: 0;
+}
+
+#auto-2 {
+    border-right: 0;
+    border-top: 0;
+}
+
+#auto-3 {
+    border-left: 0;
+}
+
+#auto-4 {
+    border-right: 0;
+}
+
+#auto-5 {
+    border-left: 0;
+}
+
+#auto-6 {
+    border-right: 0;
+}
+
+#auto-7 {
+    border-left: 0;
+}
+
+#auto-9 {
+    border-bottom: 0;
+    border-left: 0;
+}
+
+#auto-10 {
+    border-right: 0;
+}
+
+#auto-11 {
+	border-left: 0;
+}
+
+#auto-14 {
+    border-right: 0;
+}
+
+/* #robot-15 {
+    border-right: 0;
+    border-bottom: 0;
+    position: relative;
+}
+
+#robot-15 img {
+    width: 110px;
+    display: block;
+    margin-top: 10px;
+}
+
+#robot-15 .robot-3 {
+    position: absolute;
+    top: 5px;
+    left: 28%;
+    font-size: 1.1rem;
+    text-decoration: underline;
+} */
+
+#robot-12 img,
+#robot-13 img {
+    width: 120px;
+}
+
+.robot-1 {
+    position: absolute;
+    z-index: 10;
+    bottom: 80px;
+    left: 100px;
+    font-size: 1.2rem;
+    text-decoration: underline;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.robot-2 {
+    position: absolute;
+    z-index: 10;
+    bottom: 80px;
+    right: 500px;
+    text-decoration: underline;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+.motorcycle-section {
+    display: flex;
+}
+
+.motorcycle-section .motors {
+    display: grid;
+    grid-template-areas: 
+                    "motor infos infos buttons"
+                    "tajmer infos infos buttons";
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 50px 50px;
+    border: 1px solid var(--blue-color);
+    border-left: 0;
+}
+
+.motorcycle-section .motors img {
+    grid-area: motor;
+    width: 90px;
+}
+
+.motorcycle-section .motors img.motor-1-image {
+    width: 110px;
+}
+
+.motorcycle-section .motors .timer {
+    grid-area: tajmer;
+    font-size: 1.8rem;
+    margin-top: 30px;
+}
+
+.motorcycle-section .motors .text-large {
+    font-size: 2rem;
+}
+
+.motorcycle-section .motors .info {
+    grid-area: infos;
+}
+
+.motorcycle-section .motors .buttons {
+    grid-area: buttons;
+    padding: 6px 6px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.motorcycle-section .motors .buttons button {
+    width: 80px;
+    height: 30px;
+    font-size: .9rem;
+    text-transform: uppercase;
+    background: transparent;
+    border: 1px solid var(--blue-color);
+    color: #ffffff;
+    cursor: pointer;
+    outline: none;
+    border-radius: 3px;
+}
+
+/* CARS SECTION */
+
+.cars-section {
+    display: flex;
+}
+
+.cars-section .cars {
+    display: grid;
+    grid-template-areas: 
+                    "motor infos infos buttons"
+                    "tajmer infos infos buttons";
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 50px 50px;
+    border: 1px solid var(--blue-color);
+    border-bottom: 0;
+    border-left: 0;
+}
+
+.cars-section .cars img {
+    grid-area: motor;
+    width: 90px;
+}
+
+.cars-section .cars img.motor-1-image {
+    width: 110px;
+}
+
+.cars-section .cars .timer {
+    grid-area: tajmer;
+    font-size: 1.8rem;
+    margin-top: 20px;
+}
+
+.cars-section .cars .text-large {
+    font-size: 2rem;
+}
+
+.cars-section .cars .info {
+    grid-area: infos;
+}
+
+.cars-section .cars .buttons {
+    grid-area: buttons;
+    padding: 6px 6px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.cars-section .cars .buttons button {
+    width: 80px;
+    height: 30px;
+    font-size: .9rem;
+    text-transform: uppercase;
+    background: transparent;
+    border: 1px solid var(--blue-color);
+    color: #ffffff;
+    cursor: pointer;
+    outline: none;
+    border-radius: 3px;
+}
+
+.container .box button:hover,
+.robots .buttons button:hover,
+.motors .buttons button:hover,
+.cars .buttons button:hover,
+#end:hover,
+#full:hover,
+#normal:hover {
+    color: #000000;
+    background: #ffffff;
+}
+
+.container .box button:active,
+.robots .buttons button:active,
+.motors .buttons button:active,
+.cars .buttons button:active,
+#end:active,
+#full:active,
+#normal:active {
+    background-image: linear-gradient(#134550, #0fbee6);
+    color: #ffffff;
+}
+
+

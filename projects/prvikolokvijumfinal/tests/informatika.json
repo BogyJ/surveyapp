@@ -1,0 +1,183 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "Jedan od navedenih pojmova nije povezan sa radom na Internetu:",
+      "answers": {
+        "1": "TCP/IP",
+        "2": "FTP",
+        "3": "WWW",
+        "4": "HOTL"
+      },
+      "correctAnswer": 4,
+      "isMultipleAnswerChoice": false
+    },
+    {
+      "id": 2,
+      "question": "Šta znači prefiks \"mega\"?",
+      "answers": {
+        "1": "Stotinu",
+        "2": "Hiljadu",
+        "3": "Milion",
+        "4": "Hiljaditi",
+        "5": "Milioniti"
+      },
+      "correctAnswer": 3,
+      "isMultipleAnswerChoice": false
+    },
+    {
+      "id": 3,
+      "question": "Brzina procesorskog takta se meri u:",
+      "answers": {
+        "1": "CPU",
+        "2": "Gb",
+        "3": "Mbps",
+        "4": "GHz",
+        "5": "Рутери"
+      },
+      "correctAnswer": 4,
+      "isMultipleAnswerChoice": false
+    },
+    {
+      "id": 4,
+      "question": "Radna površina Windows-a naziva se?",
+      "answers": {
+        "1": "Taskbar",
+        "2": "Desktop",
+        "3": "Recycle Bin"
+      },
+      "correctAnswer": 2,
+      "isMultipleAnswerChoice": false
+    },
+    {
+      "id": 5,
+      "question": "Ako 4 bita nazivamo polubajt, 8 bita - bajt, kako nazivamo 16 bita?",
+      "answers": {
+        "1": "Reč",
+        "2": "Dugačka reč",
+        "3": "Slog"
+      },
+      "correctAnswer": 2,
+      "isMultipleAnswerChoice": false
+    },
+    {
+      "id": 6,
+      "question": "Najmanja jedinica koju računar prepoznaje je:",
+      "answers": {
+        "1": "bit",
+        "2": "nibl",
+        "3": "byte",
+        "4": "bod"
+      },
+      "correctAnswer": 1,
+      "isMultipleAnswerChoice": false
+    },
+    {
+      "id": 7,
+      "question": "Servis interneta koji omogućava prenošenje datoteka sa jednog na drugi računar širom sveta je:",
+      "answers": {
+        "1": "Web",
+        "2": "Gopher",
+        "3": "Telnet",
+        "4": "FTP"
+      },
+      "correctAnswer": 4,
+      "isMultipleAnswerChoice": false
+    },
+    {
+      "id": 8,
+      "question": "Koje portove koristi FTP protokol?",
+      "answers": {
+        "1": "22",
+        "2": "21",
+        "3": "443",
+        "4": "80",
+        "5": "3389",
+        "6": "20"
+      },
+      "correctAnswer": [2, 6],
+      "isMultipleAnswerChoice": true
+    },
+    {
+      "id": 9,
+      "question": "Mašinski jezik predstavlja jezik od:",
+      "answers": {
+        "1": "Cifara 0 i 1",
+        "2": "cifara od 0 do 7",
+        "3": "cifara od 0 do 9"
+      },
+      "correctAnswer": 1,
+      "isMultipleAnswerChoice": false
+    },
+    {
+      "id": 10,
+      "question": "ROM označava:",
+      "answers": {
+        "1": "Magistralu računara",
+        "2": "Standardni konektor na računaru",
+        "3": "Video memoriju",
+        "4": "Memoriju iz koje se samo čita"
+      },
+      "correctAnswer": 4,
+      "isMultipleAnswerChoice": false
+    },
+    {
+      "id": 11,
+      "question": "Modem omogućava prenos podataka brzinom koja se iskazuje sledećim jedinicama:",
+      "answers": {
+        "1": "Lumena/s",
+        "2": "kBps",
+        "3": "kbps"
+      },
+      "correctAnswer": 3,
+      "isMultipleAnswerChoice": false
+    },
+    {
+      "id": 12,
+      "question": "Standardan raspored slova na tastaturi je:",
+      "answers": {
+        "1": "asdfgh",
+        "2": "abcdef",
+        "3": "xyzwqp",
+        "4": "qwerty"
+      },
+      "correctAnswer": 4,
+      "isMultipleAnswerChoice": false
+    },
+    {
+      "id": 13,
+      "question": "Kombinacija tastera Ctrl+V koristi se u Windows aplikacijama za komandu:",
+      "answers": {
+        "1": "Cut",
+        "2": "Disable",
+        "3": "Paste",
+        "4": "Enable",
+        "5": "Copy"
+      },
+      "correctAnswer": 3,
+      "isMultipleAnswerChoice": false
+    },
+    {
+      "id": 14,
+      "question": "Adresna magistrala je:",
+      "answers": {
+        "1": "uređaj za dekodiranje adresa",
+        "2": "magistrala kojom putuju adrese od procesora do uređaja",
+        "3": "uređaj za adresiranje magistrala"
+      },
+      "correctAnswer": 2,
+      "isMultipleAnswerChoice": false
+    },
+    {
+      "id": 15,
+      "question": "Naziv prvog elektronskog digitalnog računara je:",
+      "answers": {
+        "1": "ABAKUS",
+        "2": "ENIAC",
+        "3": "NOKIA"
+      },
+      "correctAnswer": 2,
+      "isMultipleAnswerChoice": false
+    }
+  ]
+}

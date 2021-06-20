@@ -1,0 +1,41 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "Прво питање:",
+      "answers": {
+        "1": "Одговор 1",
+        "2": "Одговор 2",
+        "3": "Одговор 3",
+        "4": "Одговор 4 (ТАЧАН)"
+      },
+      "correctAnswer": 4,
+      "isMultipleAnswerChoice": false
+    },
+    {
+      "id": 2,
+      "question": "Друго питање:",
+      "answers": {
+        "1": "Одговор 1",
+        "2": "Одговор 2 (ТАЧАН)",
+        "3": "Одговор 3",
+        "4": "Одговор 4"
+      },
+      "correctAnswer": 2,
+      "isMultipleAnswerChoice": false
+    },
+    {
+      "id": 3,
+      "question": "Треће питање:",
+      "answers": {
+        "1": "Одговор 1",
+        "2": "Одговор 2",
+        "3": "Одговор 3 (ТАЧАН)",
+        "4": "Одговор 4 (ТАЧАН)",
+        "5": "Одговор 5"
+      },
+      "correctAnswers": [3, 4],
+      "isMultipleAnswerChoice": true
+    }
+  ]
+}

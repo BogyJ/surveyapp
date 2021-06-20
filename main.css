@@ -1,0 +1,24 @@
+header img {
+    display: block;
+    width: 80px;
+}
+
+#survey-form {
+    margin-top: 50px;
+    margin-bottom: 180px;
+}
+
+footer {
+    margin-top: 200px;
+    background-color: #f8f9fa;
+}
+
+#copy-btn {
+    background: none;
+    border: none;
+    color: #f8f9fa;
+}
+
+.share-survey {
+    margin-top: 100px;
+}

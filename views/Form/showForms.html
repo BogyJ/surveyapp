@@ -1,0 +1,10 @@
+{% extends "_global/index.html" %}
+
+{% block main %}
+<h1 class="display-4 text-center mt-3">Moje ankete</h1>
+<ul class="text-center mt-5">
+    {% for survey in surveys %}
+        <a href="/user/survey/show/{{ survey.form_id }}/">{{ survey.name|e }}</a><br>
+    {% endfor %}
+</ul>
+{% endblock %}

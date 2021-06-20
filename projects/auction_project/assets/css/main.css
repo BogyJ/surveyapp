@@ -1,0 +1,9 @@
+.bookmarks {
+    background-color: rgb(228, 222, 222);
+    color: #312c2c;
+    padding: 5px 10px;
+    position: fixed;
+    display: block;
+    top: 50px;
+    right: 20px;
+}

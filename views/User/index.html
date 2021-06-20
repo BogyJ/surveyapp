@@ -1,0 +1,14 @@
+{% extends "_global/index.html" %}
+
+{% block main %}
+<div class="jumbotron mt-5">
+    {% if user %}
+    <h1 class="display-4">Dobro došli, {{ user.forename|e }}</h1>
+    {% else %}
+    <h1 class="display-4">Aplikacija za kreiranje anketa</h1>
+    {% endif %}
+    <a href="/user/survey/show/">Napravi anketu</a><br>
+    <a href="/user/survey/show/all/">Pogledaj spisak mojih anketa</a>
+</div>
+<a href="/user/logout/"><i class="fas fa-sign-out-alt"></i> Logout</a>
+{% endblock %}

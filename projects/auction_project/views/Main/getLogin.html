@@ -1,0 +1,19 @@
+{% extends "_global/index.html" %}
+
+{% block main %}
+<form action="/user/login/" method="POST">
+    <div>
+        <label for="input-username">Username:</label>
+        <input type="text" id="input-username" name="login-username" required placeholder="pperic">
+    </div>
+
+    <div>
+        <label for="input-password">Password:</label>
+        <input type="password" id="input-password" name="login-password" required>
+    </div>
+
+    <div>
+        <input type="submit" value="Log in">
+    </div>
+</form>
+{% endblock %}

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <base href="/projects/prvikolokvijum/">
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Веб апликацијa за тестирање студената</title>
+
+        <!-- main.css -->
+        <link rel="stylesheet" href="assets/css/main.css" type="text/css">
+
+        <!-- favicon.ico -->
+        <link rel="icon" href="favicon.ico" type="image/icon">
+
+        <!-- animate.css -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+        <!-- fontawesome -->
+        <script src="https://kit.fontawesome.com/27e70bde50.js" crossorigin="anonymous"></script>
+
+        <!-- script.js -->
+        <script src="assets/js/script.js" defer></script>
+    </head>
+    <body>
+        <header>
+            HEADER
+        </header>
+
+        <main>
+            <h1>Веб апликацијa за тестирање студената</h1>
+            <form action="handle.php/" method="GET" id="test-form">
+                <label for="tests">Молимо Вас, изаберите тест:</label>
+                <select id="tests">
+                    <option value="rm">Рачунарксе мреже</option>
+                    <option value="test">Тест</option>
+                </select>
+
+                <input type="submit" value="Старт" id="submit-button">
+                <input type="hidden" value="1" name="question-id">
+            </form>
+        </main>
+
+        <footer>
+            FOOTER
+        </footer>
+    </body>
+</html>

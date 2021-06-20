@@ -1,0 +1,173 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "U programskom jeziku C važi da je indeks prvog člana niza uvek:",
+      "answers": {
+        "1": "1",
+        "2": "0",
+        "3": "svejedno"
+      },
+      "correctAnswer": 2,
+      "isMultipleAnswerChoice": false
+    },
+    {
+      "id": 2,
+      "question": "U Visual C++-u koje sve tabove sadrži radna površina (workspace):",
+      "answers": {
+        "1": "ClassView, DialogView, FileView",
+        "2": "ClassView, ResourceView, FolderView",
+        "3": "ClassView, ResourceView, HeaderView",
+        "4": "ClassView, ResourceView, FileView"
+      },
+      "correctAnswer": 4,
+      "isMultipleAnswerChoice": false
+    },
+    {
+      "id": 3,
+      "question": "U programskom jeziku C++ za dodavanje novog elementa vektoru se koristi funkcija članica:",
+      "answers": {
+        "1": "add()",
+        "2": "push_back()",
+        "3": "pop()"
+      },
+      "correctAnswer": 2,
+      "isMultipleAnswerChoice": false
+    },
+    {
+      "id": 4,
+      "question": "U Javi Overloading metoda je postupak:",
+      "answers": {
+        "1": "kreiranje metoda sa istim nazivom i istim potpisom",
+        "2": "kreiranje metoda sa različitim nazivom i istim potpisom",
+        "3": "kreiranje metoda sa istim nazivom i različitim potpisom"
+      },
+      "correctAnswer": 3,
+      "isMultipleAnswerChoice": false
+    },
+    {
+      "id": 5,
+      "question": "U SQL-u u Enterprise Manager-u je moguće definisati tip podataka za određenu kolonu?",
+      "answers": {
+        "1": "DA",
+        "2": "NE"
+      },
+      "correctAnswer": 1,
+      "isMultipleAnswerChoice": false
+    },
+    {
+      "id": 6,
+      "question": "Koja je vrednost binarnog broja 111111 u decimalnom brojnom sistemu?",
+      "answers": {
+        "1": "63",
+        "2": "64",
+        "3": "127",
+        "4": "128"
+      },
+      "correctAnswer": 1,
+      "isMultipleAnswerChoice": false
+    },
+    {
+      "id": 7,
+      "question": "Kompletan paket za razvoj Java programa je:",
+      "answers": {
+        "1": "JDK",
+        "2": "JRE",
+        "3": "JDBC",
+        "4": "JRK"
+      },
+      "correctAnswer": 1,
+      "isMultipleAnswerChoice": false
+    },
+    {
+      "id": 8,
+      "question": "Preprocesor u jeziku C++ ima ulogu da:",
+      "answers": {
+        "1": "Proveri gramatičku tačnost napisanog source programa",
+        "2": "Javlja greške o bibliotekama koje treba da se uključe u glavni program",
+        "3": "Vrši includovanje header fajlova i usklađivanje #define direktiva, kao i kontrolu direktiva za uslovno prevođenje"
+      },
+      "correctAnswer": 3,
+      "isMultipleAnswerChoice": false
+    },
+    {
+      "id": 9,
+      "question": "Korisničke baze podataka u SQL serveru su?",
+      "answers": {
+        "1": "User,Pubs,Northwind",
+        "2": "Northwind,TempDB,MSDB",
+        "3": "Pubs,TempDB,Master,Model",
+        "4": "Model,MSDB,Northwind,Pubs"
+      },
+      "correctAnswer": 1,
+      "isMultipleAnswerChoice": false
+    },
+    {
+      "id": 10,
+      "question": "U Standard C++ jeziku deklaracija:",
+      "answers": {
+        "1": "Alocira prostora za varijablu",
+        "2": "Predstavlja informaciju kompajleru o tome kakva je return vrednost funkcije, i generalno kako izgleda neki objekat"
+      },
+      "correctAnswer": 2,
+      "isMultipleAnswerChoice": false
+    },
+    {
+      "id": 11,
+      "question": "Vrednosti TRUE ili FALSE odnose se na tip:",
+      "answers": {
+        "1": "boolean",
+        "2": "double",
+        "3": "char",
+        "4": "integer"
+      },
+      "correctAnswer": 1,
+      "isMultipleAnswerChoice": false
+    },
+    {
+      "id": 12,
+      "question": "U programskom jeziku upotrebom Debagera moguće je pratiti stanje:",
+      "answers": {
+        "1": "Operativnog sistema",
+        "2": "Stanje i dinamičke izmene varijabli u programu",
+        "3": "Stanje i dinamičke izmene varijabli u programu, kao i stanje izlaza na ekran"
+      },
+      "correctAnswer": 3,
+      "isMultipleAnswerChoice": false
+    },
+    {
+      "id": 13,
+      "question": "Sledeće aktivnosti u ciljnoj relaciji mogu da naruše referencijalni integritet:",
+      "answers": {
+        "1": "Selektovanje (SELECT) postojećih n-torki",
+        "2": "Brisanje (DELETE) postojećih n-torki",
+        "3": "Unos (INSERT) novih n-torki ",
+        "4": "Izmena (UPDATE) postojećih n-torki"
+      },
+      "correctAnswer": [2, 4],
+      "isMultipleAnswerChoice": true
+    },
+    {
+      "id": 14,
+      "question": "U SQL-u Komanda INNER JOIN vrši:",
+      "answers": {
+        "1": "Kreiranje tabela",
+        "2": "Spajanje dve ili više baza",
+        "3": "Spajanje dve ili više tabela"
+      },
+      "correctAnswer": 3,
+      "isMultipleAnswerChoice": false
+    },
+    {
+      "id": 15,
+      "question": "Petlja kod koje je moguće da se telo nijednom ne izvrši je:",
+      "answers": {
+        "1": "REPEAT - UNTIL",
+        "2": "LOOP",
+        "3": "WHILE - DO"
+      },
+      "correctAnswer": 3,
+      "isMultipleAnswerChoice": false
+    }
+  ]
+}
