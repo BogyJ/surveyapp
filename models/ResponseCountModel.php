@@ -9,7 +9,7 @@ class ResponseCountModel {
     }
 
     public function getResponseCountsByFormId(int $formId) {
-        $sql = "SELECT COUNT(`response_count_id`) AS total_responses FROM `survey`.`response_count` WHERE `response_count`.`form_id` = ?;";
+        $sql = "SELECT `response_count`.`counter` AS total_responses FROM `survey`.`response_count` WHERE `response_count`.`form_id` = ?;";
         $prep = $this->dbc->getConnection()->prepare($sql);
         $result = $prep->execute([ $formId ]);
         $totalResponsesByFormId = -1;

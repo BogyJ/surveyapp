@@ -75,11 +75,15 @@
                         $fileDestination = "uploads/" . $newFileName;
                         # $fileType = strtolower(pathinfo($file, PATHINFO_EXTENSION));
                         # $allowed = [".jpg", ".png", ".jpeg"];
-                        # if (in_array($fileExtension, $allowed)) {  }
+
+                        # ADD CODE BELOW TO PROTECT APPLICATION FROM REMOTE FILE INCLUSION
+                        # if (in_array($fileExtension, $allowed)) { }
+
+                        # MOVE THIS IF STATEMENT INSIDE THE ABOVE IF STATEMENT
                         if (move_uploaded_file($fileTmpName, $fileDestination)) {
                             $this->set("uploadMessage", "Fajl je uploadovan");
                         } else {
-                            $this->set("uploadMessage", "Došlo je do greške, fajl nije uploadovan");
+                            $this->set("uploadMessage", "");
                         }
                     }
 
@@ -127,13 +131,21 @@
             # $responses = $responseModel->getResponsesByFormId($formId);
 
             $responseCountModel = new \App\Models\ResponseCountModel($this->getDatabaseConnection());
-            $totalResponses = intval($responseCountModel->getResponseCountsByFormId($formId)->total_responses);
+            if (isset($responseCountModel->getResponseCountsByFormId($formId)->total_responses)) {
+                $totalResponses = intval($responseCountModel->getResponseCountsByFormId($formId)->total_responses);
+            }
 
             for ($i = 0; $i < count($answers); $i++) {
                 for ($j = 0; $j < count($answers[$i]); $j++) {
                     for ($k = 0; $k < count($matchers); $k++) {
-                        if ($answers[$i][$j]->answer_id === $matchers[$k]["answer-id"] && intval($matchers[$k]["times-selected"]) > 0 && $totalResponses > 0) {
-                            $answers[$i][$j]->percentage = number_format((intval($matchers[$k]["times-selected"]) + 100) / $totalResponses, 2);
+                        if (isset($totalResponses) && $answers[$i][$j]->answer_id === $matchers[$k]["answer-id"] && intval($matchers[$k]["times-selected"]) > 0 && $totalResponses > 0) {
+                            # var_dump($matchers[$k]["times-selected"]);
+                            # var_dump(floatval($matchers[$k]["times-selected"]) + 100) / $totalResponses;
+                            $result = (intval($matchers[$k]["times-selected"]) + 100) / $totalResponses;
+                            if ($result > 100) {
+                                $result = 100.00;
+                            }
+                            $answers[$i][$j]->percentage = floatval($result);
                         }
 
                         $currentQuestion = $questionModel->getQuestionById($answers[$i][$j]->question_id);
@@ -146,9 +158,12 @@
                     }
                 }
             }
-            var_dump($answers);
+
+            if (isset($totalResponses)) {
+                $this->set('totalResponses', $totalResponses);
+            }
+
             $this->set('answers', $answers);
-            $this->set('totalResponses', $totalResponses);
             $this->set('survey', $form);
         }
 
@@ -239,7 +254,7 @@
             $responseCountModel = new \App\Models\ResponseCountModel($this->getDatabaseConnection());
             $totalCounts = $responseCountModel->getResponseCountsByFormId($form->form_id);
 
-            if ($totalCounts !== -1 && $totalCounts->total_responses !== "0") {
+            if (isset($totalCounts->total_responses) && $totalCounts !== -1 && $totalCounts->total_responses !== "0") {
                 $responseCountModel->updateCounter([
                     "form-id" => $form->form_id
                 ]);

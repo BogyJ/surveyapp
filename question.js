@@ -11,14 +11,20 @@
     addSurveyBtn.addEventListener("click", (e) => {
         e.preventDefault();
 
+        if (formFile.files[0] === undefined) {
+            form.submit();
+        }
+
         let fileName = formFile.files[0].name;
         let fileExtension = fileName.split(".").pop();
 
+        console.log(formFile);
         if (fileExtension.includes("jpg") || fileExtension.includes("jpeg") || fileExtension.includes("png")) {
             form.submit();
         } else {
             alert("Fajl mora biti JPG, JPEG ili PNG");
         }
+
     });
 
     function getQuestionNextId() {
