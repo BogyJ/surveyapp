@@ -1,6 +1,6 @@
 # Survey application
 * You can create surveys and share them via link and get responses from other users
-* Purpose of this application is to simulate how it's easy to get into web server
+* Purpose of this application is to practice penetration testing using variety of techniques
   
 ## Prerequisites
 * php 7.2 or greater
