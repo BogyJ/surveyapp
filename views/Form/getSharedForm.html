@@ -4,28 +4,32 @@
 <div class="jumbotron share-survey">
     <h1 class="display-4 text-center">{{ surveyName }}</h1>
 
-    {% if image is defined %}
-        <img src="/uploads/{{ image }}" alt="Uploaded image" class="uploaded-img">
-    {% endif %}
+    {% if message is not defined %}
+        {% if image is defined %}
+            <img src="/uploads/{{ image }}" alt="Uploaded image" class="uploaded-img">
+        {% endif %}
 
-    <form action="{{ BASE }}user/survey/response/{{ shareString|e }}/" method="POST">
-        {% for i in 0..(questions|length-1) %}
-                <h4 class="mt-5">{{ questions[i].title|e }}</h4>
-                {% for j in 0..(answers[i]|length-1) %}
-                    <div class="form-check mt-3">
-                        {% if questions[i].type|e == "radio" %}
-                            <input type="{{ questions[i].type|e }}" name="answer-{{ questions[i].question_id }}" id="answer-{{ answers[i][j].answer_id|e }}" value="{{ answers[i][j].answer_id|e }}" class="form-check-input">
-                        {% elseif questions[i].type|e == "checkbox" %}
-                            <input type="checkbox" name="answer[]" id="answer-{{ answers[i][j].answer_id|e }}" value="{{ answers[i][j].answer_id|e }}" class="form-check-input">
-                        {% else %}
-                            <input type="text" name="answer-{{ questions[i].question_id }}-text" id="answer-{{ answers[i][j].answer_id|e }}" class="form-check-input">
-                            <input type="hidden" name="answer-{{ questions[i].question_id }}" value="{{ answers[i][j].answer_id|e }}">
-                        {% endif %}
-                        <label for="answer-{{ answers[i][j].answer_id|e }}" class="form-check-label">{{ answers[i][j].answer|e }}</label>
-                    </div>
-                {% endfor %}
-        {% endfor %}
-        <button type="submit" class="btn btn-primary mt-5">Evidentiraj moj odgovor</button>
-    </form>
+        <form action="{{ BASE }}user/survey/response/{{ shareString|e }}/" method="POST">
+            {% for i in 0..(questions|length-1) %}
+                    <h4 class="mt-5">{{ questions[i].title|e }}</h4>
+                    {% for j in 0..(answers[i]|length-1) %}
+                        <div class="form-check mt-3">
+                            {% if questions[i].type|e == "radio" %}
+                                <input type="{{ questions[i].type|e }}" name="answer-{{ questions[i].question_id }}" id="answer-{{ answers[i][j].answer_id|e }}" value="{{ answers[i][j].answer_id|e }}" class="form-check-input">
+                            {% elseif questions[i].type|e == "checkbox" %}
+                                <input type="checkbox" name="answer[]" id="answer-{{ answers[i][j].answer_id|e }}" value="{{ answers[i][j].answer_id|e }}" class="form-check-input">
+                            {% else %}
+                                <input type="text" name="answer-{{ questions[i].question_id }}-text" id="answer-{{ answers[i][j].answer_id|e }}" class="form-check-input">
+                                <input type="hidden" name="answer-{{ questions[i].question_id }}" value="{{ answers[i][j].answer_id|e }}">
+                            {% endif %}
+                            <label for="answer-{{ answers[i][j].answer_id|e }}" class="form-check-label">{{ answers[i][j].answer|e }}</label>
+                        </div>
+                    {% endfor %}
+            {% endfor %}
+            <button type="submit" class="btn btn-primary mt-5">Evidentiraj moj odgovor</button>
+        </form>
+    {% else %}
+        <h1>{{ message }}</h1>
+    {% endif %}
 </div>
 {% endblock %}

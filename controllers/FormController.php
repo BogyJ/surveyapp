@@ -104,8 +104,24 @@
             $formModel = new \App\Models\FormModel($this->getDatabaseConnection());
             $form = $formModel->getFormById($formId);
 
-            # show all answers for this form and their statistics
             $questionModel = new \App\Models\QuestionModel($this->getDatabaseConnection());
+
+
+            if (!isset($form->form_id)) {
+                $this->set("message", "Anketa ne postoji.");
+                return;
+            }
+
+            $timestamp = strtotime($form->expires_at);
+            if (date("m-d-Y") > date("m-d-Y", $timestamp)) {
+                $questions = $questionModel->getQuestionsByFormId($form->form_id);
+                $formModel->deleteForm($formId, $questions);
+                $this->set("message", "Anketa je istekla.");
+                return;
+            }
+
+            # show all answers for this form and their statistics
+
             $questions = $questionModel->getQuestionsByFormId($form->form_id);
 
             $answerModel = new \App\Models\AnswerModel($this->getDatabaseConnection());
@@ -127,9 +143,6 @@
                 }
             }
 
-            $responseModel = new \App\Models\ResponseModel($this->getDatabaseConnection());
-            # $responses = $responseModel->getResponsesByFormId($formId);
-
             $responseCountModel = new \App\Models\ResponseCountModel($this->getDatabaseConnection());
             if (isset($responseCountModel->getResponseCountsByFormId($formId)->total_responses)) {
                 $totalResponses = intval($responseCountModel->getResponseCountsByFormId($formId)->total_responses);
@@ -139,13 +152,9 @@
                 for ($j = 0; $j < count($answers[$i]); $j++) {
                     for ($k = 0; $k < count($matchers); $k++) {
                         if (isset($totalResponses) && $answers[$i][$j]->answer_id === $matchers[$k]["answer-id"] && intval($matchers[$k]["times-selected"]) > 0 && $totalResponses > 0) {
-                            # var_dump($matchers[$k]["times-selected"]);
-                            # var_dump(floatval($matchers[$k]["times-selected"]) + 100) / $totalResponses;
-                            $result = (intval($matchers[$k]["times-selected"]) + 100) / $totalResponses;
-                            if ($result > 100) {
-                                $result = 100.00;
-                            }
-                            $answers[$i][$j]->percentage = floatval($result);
+                            # $result = (intval($matchers[$k]["times-selected"]) + 100) / $totalResponses;
+                            $result = 100 / $totalResponses;
+                            $answers[$i][$j]->percentage = number_format(floatval($result) ,0);
                         }
 
                         $currentQuestion = $questionModel->getQuestionById($answers[$i][$j]->question_id);
@@ -169,6 +178,21 @@
 
         public function getSharedForm(string $formShareString) {
             $formModel = new \App\Models\FormModel($this->getDatabaseConnection());
+            $questionModel = new \App\Models\QuestionModel($this->getDatabaseConnection());
+            $form = $formModel->getFormByShareString($formShareString);
+
+            $timestamp = strtotime($form->expires_at);
+            if (date("m-d-Y") > date("m-d-Y", $timestamp)) {
+                $questions = $questionModel->getQuestionsByFormId($form->form_id);
+                $formModel->deleteForm($form->form_id, $questions);
+                $this->set("message", "Anketa je istekla.");
+                return;
+            }
+
+            if (!isset($formModel->getFormByShareString($formShareString)->form_id)) {
+                $this->set("message", "Anketa ne postoji.");
+                return;
+            }
             $form = $formModel->getFormByShareString($formShareString);
 
             $questionModel = new \App\Models\QuestionModel($this->getDatabaseConnection());
@@ -265,8 +289,22 @@
                 ]);
             }
 
+        }
 
+        public function deleteForm(int $formId) {
+            $formModel = new \App\Models\FormModel($this->getDatabaseConnection());
 
+            $questionModel = new \App\Models\QuestionModel($this->getDatabaseConnection());
+            $questionIds = $questionModel->getQuestionsByFormId($formId);
+
+            $result = $formModel->deleteForm($formId, $questionIds);
+
+            $message = "Anketa nije izbrisana!";
+            if ($result) {
+                $message = "Anketa izbrisana!";
+            }
+
+            $this->set("message", $message);
         }
 
     }
