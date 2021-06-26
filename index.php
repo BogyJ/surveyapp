@@ -38,7 +38,7 @@
     $loader = new \Twig\Loader\FilesystemLoader('./views');
     $twig = new \Twig\Environment($loader, [
         'cache' => './twig-cache',
-        'auto_reload' => true
+        'auto_reload' => false
     ]);
 
     $data["BASE"] = Configuration::BASE;
