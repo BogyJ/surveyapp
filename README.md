@@ -1,5 +1,4 @@
 # Survey application
-* Application was developed for University needs
 * You can create surveys and share them via link and get responses from other users
 * Purpose of this application is to simulate how it's easy to get into web server
   
