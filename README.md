@@ -13,3 +13,4 @@
 * You need to install composer and run `composer init` command to install all packages from composer.json file
 * Maybe it will be necessary to run `composer dump auto-load` also
 * Link to MySQL database file: https://1drv.ms/u/s!AqYDwuDTtO3ZlCcMu14WAZq1KETR
+* All the namespace folders needs to be capitalized in order to work the application (naming convention for autoload) see https://getcomposer.org/doc/01-basic-usage.md#autoloading
